@@ -1,6 +1,7 @@
 int moveAcross = 5;
 int moveDown = 5;
 int far = 100;
+int birdie = 100;
 
 void setup()
 {
@@ -10,16 +11,21 @@ int x = 10;
 
 void draw()
 {
+
 	far = far + (int)(Math.random() * 100);
 	background(far,far,far);
+	birdFace();
 	moveAcross += 3;
 	moveDown += 3;
     picture();
   	paddle();
+  	mousePressed();
   
 }
 void picture()
 {
+	background(30, 200, 100);
+	birdFace();
 	fill(250,0,100);
  	ellipse(moveAcross,moveAcross,10,10);
  	ellipse(moveAcross/5,moveAcross/5,10, 10);
@@ -37,9 +43,26 @@ void paddle()
 	fill(30, 20, 100);
 	rect(mouseY, mouseX, 5, 5);
 }
-
-
-	
+void mousePressed()
+{
+	noStroke();
+	fill(mouseY, mouseY/5, mouseX, 20);
+	ellipse(mouseY, mouseX, mouseX, mouseY);
+}
+void birdFace()
+{
+	ellipse(50, birdie, 100, 100);
+	ellipse(250, birdie, 100, 100);
+	triangle(50, 250, 250, 250, 150, 350);
+}
+for(int birdie = 100; birdie < 90; birdie = birdie + 10)
+{
+	ellipse(0, 0, 10, 10);
+	if(birdie > 200)
+	{
+		birdie = 100;
+	}
+}
 
 
 

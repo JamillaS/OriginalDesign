@@ -1,7 +1,7 @@
 int moveAcross = 5;
 int moveDown = 5;
 int far = 100;
-int birdie = 100;
+int birdie;
 
 void setup()
 {
@@ -45,6 +45,7 @@ void paddle()
 }
 void mousePressed()
 {
+	frameRate(15);
 	noStroke();
 	fill(mouseY, mouseY/5, mouseX, 20);
 	ellipse(mouseY, mouseX, mouseX, mouseY);
@@ -54,15 +55,17 @@ void birdFace()
 	ellipse(50, birdie, 100, 100);
 	ellipse(250, birdie, 100, 100);
 	triangle(50, 250, 250, 250, 150, 350);
+	for(int birdie = 100; birdie  > 120; birdie = birdie + 10)
+		{
+			ellipse(0, 0, 10, 10);
+			if(birdie > 200)
+			{
+				birdie = 100;
+			}
+		}
 }
-for(int birdie = 100; birdie < 90; birdie = birdie + 10)
-{
-	ellipse(0, 0, 10, 10);
-	if(birdie > 200)
-	{
-		birdie = 100;
-	}
-}
+
+
 
 
 
